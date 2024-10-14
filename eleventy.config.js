@@ -64,11 +64,11 @@ export default async function(eleventyConfig) {
 		},
 		metadata: {
 			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
-			base: "https://example.com/",
+			title: "Chris Kaczor",
+			subtitle: "Code, Critters, and whatever I feel like writing about.",
+			base: "https://chriskaczor.com/",
 			author: {
-				name: "Your Name"
+				name: "Chris Kaczor"
 			}
 		}
 	});
@@ -102,6 +102,23 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
 	});
+
+    // Categories
+    eleventyConfig.addCollection('categoryList', collection => {
+        let catSet = {};
+        collection.getAll().forEach(item => {
+            if (!item.data.categories) return;
+            item.data.categories.filter(
+                cat => !['posts', 'all'].includes(cat)
+            ).forEach(
+                cat => {
+                    if (!catSet[cat]) { catSet[cat] = []; }
+                    catSet[cat].push(item)
+                }
+            );
+        });
+        return catSet;
+    });
 
 	// Features to make your build faster (when you need them)
 
