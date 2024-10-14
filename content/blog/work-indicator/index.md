@@ -1,8 +1,8 @@
 ---
 title: "Work Indicator"
 date: "2018-03-19"
-categories: 
-  - "code"
+tags: 
+  - "Code"
 ---
 
 I'm going to take a break from status windows for a little bit to cover my [WorkIndicator](https://github.com/ckaczor/WorkIndicator) project.

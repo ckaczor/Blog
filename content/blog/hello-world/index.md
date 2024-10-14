@@ -1,9 +1,9 @@
 ---
 title: "Hello world!"
 date: "2018-02-05"
-categories: 
-  - "code"
-  - "critters"
+tags: 
+  - "Code"
+  - "Critters"
 ---
 
 Being a programmer at heart it seems appropriate to stick with the classic "hello world" for starting off!

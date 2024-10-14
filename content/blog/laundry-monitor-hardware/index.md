@@ -1,8 +1,8 @@
 ---
 title: "Laundry Monitor - Hardware"
 date: "2018-03-29"
-categories: 
-  - "code"
+tags: 
+  - "Code"
 ---
 
 The next project up is [LaundryMonitor](https://github.com/ckaczor/LaundryMonitor) which uses the most hardware of anything I've done so far.

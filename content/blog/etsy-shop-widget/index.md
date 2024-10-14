@@ -1,8 +1,8 @@
 ---
 title: "Etsy Shop Widget"
 date: "2018-04-20"
-categories: 
-  - "code"
+tags: 
+  - "Code"
 ---
 
 My wife and a friend run The Crafty Coop (edit: now closed) - an event planning business that also sells handmade party decorations/favors online and at craft shows. One of the ways I help out is as the designated "IT guy" by handling the web/email hosting and other technical stuff.

@@ -1,9 +1,9 @@
 ---
 title: "CPU Usage Status Window"
 date: "2018-03-08"
-categories: 
-  - "code"
-  - "floating-status-window"
+tags: 
+  - "Code"
+  - "Floating Status Window"
 ---
 
 Now that I've written about my [FloatingStatusWindow](https://github.com/ckaczor/FloatingStatusWindow) library I can start to talk about the projects that use it. First up is the [ProcessCpuUsageStatusWindow](https://github.com/ckaczor/ProcessCpuUsageStatusWindow) project.

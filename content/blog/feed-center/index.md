@@ -1,8 +1,8 @@
 ---
 title: "Feed Center"
 date: "2018-04-04"
-categories: 
-  - "code"
+tags: 
+  - "Code"
 ---
 
 One of my most complete projects is [Feed Center](https://github.com/ckaczor/FeedCenter) - an RSS feed reader designed to blend in with the Windows desktop.

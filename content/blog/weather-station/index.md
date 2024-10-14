@@ -1,9 +1,9 @@
 ---
 title: "Weather Station"
 date: "2018-02-17"
-categories: 
-  - "code"
-  - "weather"
+tags: 
+  - "Code"
+  - "Weather"
 ---
 
 One of the oldest projects I'm still working on today is my weather station. I had always wanted a weather station but it seemed boring to just install something on the roof, stick an LCD display on the wall somewhere, and then forget about it - I wanted something I could build, expand on, and write my own software for.

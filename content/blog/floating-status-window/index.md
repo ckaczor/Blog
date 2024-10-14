@@ -1,9 +1,9 @@
 ---
 title: "Floating Status Window"
 date: "2018-02-21"
-categories: 
-  - "code"
-  - "floating-status-window"
+tags: 
+  - "Code"
+  - "Floating Status Window"
 ---
 
 Something that shows up in a lot of my projects is my [FloatingStatusWindow](https://github.com/ckaczor/FloatingStatusWindow) library. It allows the creation of something akin to a desktop widget that displays simple text and blends in with the Windows desktop. This is what several of them look like in the corner of my secondary monitor:

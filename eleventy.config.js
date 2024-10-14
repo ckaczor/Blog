@@ -103,23 +103,6 @@ export default async function(eleventyConfig) {
 		return (new Date()).toISOString();
 	});
 
-    // Categories
-    eleventyConfig.addCollection('categoryList', collection => {
-        let catSet = {};
-        collection.getAll().forEach(item => {
-            if (!item.data.categories) return;
-            item.data.categories.filter(
-                cat => !['posts', 'all'].includes(cat)
-            ).forEach(
-                cat => {
-                    if (!catSet[cat]) { catSet[cat] = []; }
-                    catSet[cat].push(item)
-                }
-            );
-        });
-        return catSet;
-    });
-
 	// Features to make your build faster (when you need them)
 
 	// If your passthrough copy gets heavy and cumbersome, add this line

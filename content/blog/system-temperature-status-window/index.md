@@ -1,9 +1,9 @@
 ---
 title: "System Temperature Status Window"
 date: "2018-03-19"
-categories: 
-  - "code"
-  - "floating-status-window"
+tags: 
+  - "Code"
+  - "Floating Status Window"
 ---
 
 Next up in the "floating status window" category is [SystemTemperatureStatusWindow](https://github.com/ckaczor/SystemTemperatureStatusWindow). This one does exactly what it says on the tin - it shows various system temperature values.

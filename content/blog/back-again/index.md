@@ -1,9 +1,9 @@
 ---
 title: "Back Again"
 date: "2019-12-13"
-categories: 
-  - "code"
-  - "excuses"
+tags: 
+  - "Code"
+  - "Excuses"
 ---
 
 When I started this blog I had recently been laid off and figured it was as good a time as any to give some visibility to the code I had been creating over the years rather than hoarding it like a jealous dragon. I intended to keep up with it but then I started a new job and the writing sort of fell by the wayside. I kept working on projects when I could but never really got the chance to write about them. I'm hoping to be a bit more consistent this time around but only time will tell.
