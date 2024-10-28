@@ -28,7 +28,8 @@ export default async function(eleventyConfig) {
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
 	// Watch content images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+	eleventyConfig.addWatchTarget("content/blog/**/*.md");
+	eleventyConfig.addWatchTarget("content/blog/**/*.{svg,webp,png,jpeg}");
 
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
@@ -101,6 +102,55 @@ export default async function(eleventyConfig) {
 
 	eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
+	});
+
+	eleventyConfig.amendLibrary("md", (mdLib) => {
+		var defaultImageRender = mdLib.renderer.rules.image;
+
+		mdLib.renderer.rules.image = function (
+			tokens,
+			idx,
+			options,
+			env,
+			self
+		) {
+			const token = tokens[idx];
+			const aIndex = token.attrIndex("src");
+			const link = token.attrs[aIndex][1];
+
+			if (/(http(s?)):\/\//i.test(link)) {
+				// Ignore
+			} else {
+				tokens[idx].attrs[aIndex][1] = env.page.url + link;
+			}
+
+			return defaultImageRender(tokens, idx, options, env, self);
+		};
+
+		var defaultLinkOpenRender = mdLib.renderer.rules.link_open || function (tokens, idx, options, env, self) {
+			return self.renderToken(tokens, idx, options);
+		  };
+
+		mdLib.renderer.rules.link_open = function (
+			tokens,
+			idx,
+			options,
+			env,
+			self
+		) {
+			const token = tokens[idx];
+			const aIndex = token.attrIndex("href");
+			const link = token.attrs[aIndex][1];
+
+			if (/(http(s?)):\/\//i.test(link)) {
+				// Ignore
+			} else {
+				tokens[idx].attrs[aIndex][1] = env.page.url + link;
+			}
+
+			return defaultLinkOpenRender(tokens, idx, options, env, self);
+		};
+
 	});
 
 	// Features to make your build faster (when you need them)
