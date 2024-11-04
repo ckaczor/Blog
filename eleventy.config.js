@@ -1,4 +1,8 @@
-import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
+import {
+	IdAttributePlugin,
+	InputPathToUrlTransformPlugin,
+	HtmlBasePlugin
+} from "@11ty/eleventy";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
@@ -7,10 +11,10 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import pluginFilters from "./_config/filters.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
-export default async function(eleventyConfig) {
+export default async function (eleventyConfig) {
 	// Drafts, see also _data/eleventyDataSchema.js
 	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
-		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+		if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 			return false;
 		}
 	});
@@ -34,11 +38,11 @@ export default async function(eleventyConfig) {
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
 	eleventyConfig.addBundle("css", {
-		toFileDirectory: "dist",
+		toFileDirectory: "dist"
 	});
 	// Adds the {% js %} paired shortcode
 	eleventyConfig.addBundle("js", {
-		toFileDirectory: "dist",
+		toFileDirectory: "dist"
 	});
 
 	// Official plugins
@@ -61,7 +65,7 @@ export default async function(eleventyConfig) {
 		},
 		collection: {
 			name: "posts",
-			limit: 10,
+			limit: 10
 		},
 		metadata: {
 			language: "en",
@@ -87,7 +91,7 @@ export default async function(eleventyConfig) {
 		defaultAttributes: {
 			// e.g. <img loading decoding> assigned on the HTML tag will override these values.
 			loading: "lazy",
-			decoding: "async",
+			decoding: "async"
 		}
 	});
 
@@ -101,7 +105,7 @@ export default async function(eleventyConfig) {
 	});
 
 	eleventyConfig.addShortcode("currentBuildDate", () => {
-		return (new Date()).toISOString();
+		return new Date().toISOString();
 	});
 
 	eleventyConfig.amendLibrary("md", (mdLib) => {
@@ -127,9 +131,11 @@ export default async function(eleventyConfig) {
 			return defaultImageRender(tokens, idx, options, env, self);
 		};
 
-		var defaultLinkOpenRender = mdLib.renderer.rules.link_open || function (tokens, idx, options, env, self) {
-			return self.renderToken(tokens, idx, options);
-		  };
+		var defaultLinkOpenRender =
+			mdLib.renderer.rules.link_open ||
+			function (tokens, idx, options, env, self) {
+				return self.renderToken(tokens, idx, options);
+			};
 
 		mdLib.renderer.rules.link_open = function (
 			tokens,
@@ -150,7 +156,6 @@ export default async function(eleventyConfig) {
 
 			return defaultLinkOpenRender(tokens, idx, options, env, self);
 		};
-
 	});
 
 	// Features to make your build faster (when you need them)
@@ -160,18 +165,12 @@ export default async function(eleventyConfig) {
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-};
+}
 
 export const config = {
 	// Control which files Eleventy will process
 	// e.g.: *.md, *.njk, *.html, *.liquid
-	templateFormats: [
-		"md",
-		"njk",
-		"html",
-		"liquid",
-		"11ty.js",
-	],
+	templateFormats: ["md", "njk", "html", "liquid", "11ty.js"],
 
 	// Pre-process *.md files with: (default: `liquid`)
 	markdownTemplateEngine: "njk",
@@ -181,11 +180,11 @@ export const config = {
 
 	// These are all optional:
 	dir: {
-		input: "content",          // default: "."
-		includes: "../_includes",  // default: "_includes" (`input` relative)
-		data: "../_data",          // default: "_data" (`input` relative)
+		input: "content", // default: "."
+		includes: "../_includes", // default: "_includes" (`input` relative)
+		data: "../_data", // default: "_data" (`input` relative)
 		output: "_site"
-	},
+	}
 
 	// -----------------------------------------------------------------
 	// Optional items:

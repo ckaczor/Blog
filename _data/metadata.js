@@ -8,4 +8,4 @@ export default {
 		email: "chris@kaczor.us",
 		url: "https://chriskaczor.com/about/"
 	}
-}
+};
