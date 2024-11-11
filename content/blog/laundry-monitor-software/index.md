@@ -8,6 +8,8 @@ tags:
 
 The software side of [LaundryMonitor](https://github.com/ckaczor/LaundryMonitor) is currently pretty straightforward. The [C.H.I.P.](https://getchip.com/pages/chip) runs a Node.js application that keeps track of a GPIO pin for each current switch - when the switch is closed the appliance is on and when the switch is open the appliance is off. The application exposes a websocket that applications like [HomeStatusWindow](https://github.com/ckaczor/HomeStatusWindow) can watch and messages are sent to a family Telegram channel.
 
+<!-- excerpt -->
+
 [![](images/HomeStatusWindow.png)](images/HomeStatusWindow.png)
 
 [![](images/LaundryBot-238x300.png)](images/LaundryBot.png)

@@ -7,6 +7,8 @@ tags:
 
 One of my most complete projects is [Feed Center](https://github.com/ckaczor/FeedCenter) - an RSS feed reader designed to blend in with the Windows desktop.
 
+<!-- excerpt -->
+
 [![](images/Feed-Center-300x188.png)](images/Feed-Center.png)
 
 Years ago when push technology was the hot new thing I got my online news from applications like PointCast and MSNBC News Alert - but they were eventually discontinued as web sites moved to other delivery mechanisms like RSS feeds. I tried to find an RSS reader but never really found one that I liked. I didn't want some Outlook lookalike that I had to specifically open and read through. I wanted an app that would blend in with my desktop as much as possible and be something that I could glance at every so often for the latest news. At some point I started fiddling with creating my own and Feed Center is the result.

@@ -8,6 +8,8 @@ tags:
 
 One of the oldest projects I'm still working on today is my weather station. I had always wanted a weather station but it seemed boring to just install something on the roof, stick an LCD display on the wall somewhere, and then forget about it - I wanted something I could build, expand on, and write my own software for.
 
+<!-- excerpt -->
+
 At some point I ran across a [weather station](http://www.eham.net/reviews/detail/4643) from AAG Electronica - it was relatively cheap, had a bunch of sensors, and ran on the Dallas Semiconductor (now Maxim Integrated) [1-Wire network](https://www.maximintegrated.com/en/products/digital/one-wire.html). It was pretty much everything that I was looking for so I bought one, mounted it on the chimney, and set about writing an application for it.
 
 At the time I was starting to learn C# and decided this would make a perfect learning project. There were a few examples for using the 1-Wire hardware (mostly in Java from what I remember) but I was able to access the driver functions from C# and started to get things working. At the lowest level there was a lot of bit manipulation but once that was going I was able to start building the application up from there.

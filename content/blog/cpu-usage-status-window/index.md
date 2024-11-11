@@ -8,6 +8,8 @@ tags:
 
 Now that I've written about my [FloatingStatusWindow](https://github.com/ckaczor/FloatingStatusWindow) library I can start to talk about the projects that use it. First up is the [ProcessCpuUsageStatusWindow](https://github.com/ckaczor/ProcessCpuUsageStatusWindow) project.
 
+<!-- excerpt -->
+
 [![](images/ProcessCpuUsageStatusWindow.png)](images/ProcessCpuUsageStatusWindow.png)
 
 It is basically a mini task manager showing the top X processes by CPU usage and the total CPU usage of the system. The values update automatically every 2 seconds.

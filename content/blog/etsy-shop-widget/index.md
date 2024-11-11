@@ -7,6 +7,8 @@ tags:
 
 My wife and a friend run The Crafty Coop (edit: now closed) - an event planning business that also sells handmade party decorations/favors online and at craft shows. One of the ways I help out is as the designated "IT guy" by handling the web/email hosting and other technical stuff.
 
+<!-- excerpt -->
+
 When we were initially setting up the website using WordPress we looked for a widget that would generate a listing of their Etsy shop items but we weren't really happy with the ones we found - they either required that the Etsy shop be broken up into sections or they didn't quite display the way we wanted. I decided to try to write my own instead of tweaking one of the existing ones and [Etsy Shop Widget](https://github.com/ckaczor/etsy-shop-widget) was born.
 
 [![](images/etsy-shop-widget-widget.png)](images/etsy-shop-widget-widget.png)

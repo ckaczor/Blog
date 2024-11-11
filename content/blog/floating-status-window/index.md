@@ -8,6 +8,8 @@ tags:
 
 Something that shows up in a lot of my projects is my [FloatingStatusWindow](https://github.com/ckaczor/FloatingStatusWindow) library. It allows the creation of something akin to a desktop widget that displays simple text and blends in with the Windows desktop. This is what several of them look like in the corner of my secondary monitor:
 
+<!-- excerpt -->
+
 [![](images/Windows-Locked.png)](images/Windows-Locked.png)
 
 Each one is a separate project that uses the core library to create and manage the window. The code for a few of these is on [GitHub](https://github.com/ckaczor) and I'm working to add more.

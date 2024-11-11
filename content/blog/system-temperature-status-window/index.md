@@ -8,6 +8,8 @@ tags:
 
 Next up in the "floating status window" category is [SystemTemperatureStatusWindow](https://github.com/ckaczor/SystemTemperatureStatusWindow). This one does exactly what it says on the tin - it shows various system temperature values.
 
+<!-- excerpt -->
+
 [![](images/SystemTemperatureStatusWindow.png)](images/SystemTemperatureStatusWindow.png)
 
 The sensor data is read using the [Open Hardware Monitor](http://openhardwaremonitor.org/) library which is pretty straightforward - the one catch is that it requires running as an administrator and getting a UAC prompt each time the application starts got a bit annoying after a while.

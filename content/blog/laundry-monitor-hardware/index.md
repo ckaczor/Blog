@@ -7,6 +7,8 @@ tags:
 
 The next project up is [LaundryMonitor](https://github.com/ckaczor/LaundryMonitor) which uses the most hardware of anything I've done so far.
 
+<!-- excerpt -->
+
 I'd always wanted something that would let us tell if the washing machine or dryer was running but I never knew exactly the right way to detect it. After we got our solar panels I was doing research on how to track power usage and came across an article about current sensors and had the idea that I could hook up a current sensor to each appliance and watch the output voltage to know if the appliance was running. While trying to find a decent sensor I stumbled across a current switch which was more or less the same idea but had everything in one package - when the current was over a certain threshold the switch would close and that could be easily detected.
 
 My first thought was to use a [PowerState Tail](http://www.powerswitchtail.com/powerstate-tail) but only a 120V version was available - there was nothing like it I could use for the 240V of the dryer. Eventually I settled on a [Dwyer Miniature Current Switch](https://smile.amazon.com/gp/product/B00I9IFJOM/ref=oh_aui_search_detailpage?ie=UTF8&psc=1) and I'd use one each for both the washer and dryer just to be consistent.

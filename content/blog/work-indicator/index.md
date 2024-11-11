@@ -7,6 +7,8 @@ tags:
 
 I'm going to take a break from status windows for a little bit to cover my [WorkIndicator](https://github.com/ckaczor/WorkIndicator) project.
 
+<!-- excerpt -->
+
 I've been working remotely for almost 14 years now and my family found it hard to tell when I was working or on the phone. It often looks the same whether I'm working or not - I'm sitting at my computer, sometimes with my headset on. At some point I came across a [blog post](https://www.hanselman.com/blog/IsDaddyOnACallABusyLightPresenceIndicatorForLyncForMyHomeOffice.aspx) by Scott Hanselman that described hooking up a status light to Lync and I was inspired to create something similar.
 
 The first task was to find something I could use as a status light - after some research I settled on a [USB HID Green/Yellow/Red Visual Indicator](https://www.delcomproducts.com/productdetails.asp?PartNumber=907241) from Delcom. I liked that it had a stoplight design and it came with a C# sample - perfect!

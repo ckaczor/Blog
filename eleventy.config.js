@@ -45,6 +45,11 @@ export default async function (eleventyConfig) {
 		toFileDirectory: "dist"
 	});
 
+	eleventyConfig.setFrontMatterParsingOptions({
+		excerpt: true,
+		excerpt_separator: "<!-- excerpt -->"
+	});
+
 	// Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
