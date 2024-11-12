@@ -2,19 +2,19 @@ import {
 	IdAttributePlugin,
 	InputPathToUrlTransformPlugin,
 	HtmlBasePlugin
-} from "@11ty/eleventy";
-import { feedPlugin } from "@11ty/eleventy-plugin-rss";
-import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import pluginNavigation from "@11ty/eleventy-navigation";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+} from '@11ty/eleventy';
+import { feedPlugin } from '@11ty/eleventy-plugin-rss';
+import pluginSyntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import pluginNavigation from '@11ty/eleventy-navigation';
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 
-import pluginFilters from "./_config/filters.js";
+import pluginFilters from './_config/filters.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
 	// Drafts, see also _data/eleventyDataSchema.js
-	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
-		if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+	eleventyConfig.addPreprocessor('drafts', '*', (data, content) => {
+		if (data.draft && process.env.ELEVENTY_RUN_MODE === 'build') {
 			return false;
 		}
 	});
@@ -23,31 +23,30 @@ export default async function (eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
-			"./public/": "/"
+			'./public/': '/'
 		})
-		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl")
-		.addPassthroughCopy("./content/blog/**/images/*");
+		.addPassthroughCopy('./content/blog/**/images/*');
 
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
 	// Watch content images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/blog/**/*.md");
-	eleventyConfig.addWatchTarget("content/blog/**/*.{svg,webp,png,jpeg}");
+	eleventyConfig.addWatchTarget('content/blog/**/*.md');
+	eleventyConfig.addWatchTarget('content/blog/**/*.{svg,webp,png,jpeg}');
 
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
-	eleventyConfig.addBundle("css", {
-		toFileDirectory: "dist"
+	eleventyConfig.addBundle('css', {
+		toFileDirectory: 'dist'
 	});
 	// Adds the {% js %} paired shortcode
-	eleventyConfig.addBundle("js", {
-		toFileDirectory: "dist"
+	eleventyConfig.addBundle('js', {
+		toFileDirectory: 'dist'
 	});
 
 	eleventyConfig.setFrontMatterParsingOptions({
 		excerpt: true,
-		excerpt_separator: "<!-- excerpt -->"
+		excerpt_separator: '<!-- excerpt -->'
 	});
 
 	// Official plugins
@@ -59,26 +58,19 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
 	eleventyConfig.addPlugin(feedPlugin, {
-		type: "atom", // or "rss", "json"
-		outputPath: "/feed/feed.xml",
-		stylesheet: "pretty-atom-feed.xsl",
-		templateData: {
-			eleventyNavigation: {
-				key: "Feed",
-				order: 4
-			}
-		},
+		type: 'atom',
+		outputPath: '/feed/feed.xml',
 		collection: {
-			name: "posts",
+			name: 'posts',
 			limit: 10
 		},
 		metadata: {
-			language: "en",
-			title: "Chris Kaczor",
-			subtitle: "Code, Critters, and whatever I feel like writing about.",
-			base: "https://chriskaczor.com/",
+			language: 'en',
+			title: 'Chris Kaczor',
+			subtitle: 'Code, Critters, and whatever I feel like writing about.',
+			base: 'https://chriskaczor.com/',
 			author: {
-				name: "Chris Kaczor"
+				name: 'Chris Kaczor'
 			}
 		}
 	});
@@ -86,17 +78,17 @@ export default async function (eleventyConfig) {
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		// File extensions to process in _site folder
-		extensions: "html",
+		extensions: 'html',
 
 		// Output formats for each image.
-		formats: ["avif", "webp", "auto"],
+		formats: ['avif', 'webp', 'auto'],
 
 		// widths: ["auto"],
 
 		defaultAttributes: {
 			// e.g. <img loading decoding> assigned on the HTML tag will override these values.
-			loading: "lazy",
-			decoding: "async"
+			loading: 'lazy',
+			decoding: 'async'
 		}
 	});
 
@@ -109,11 +101,11 @@ export default async function (eleventyConfig) {
 		// selector: "h1,h2,h3,h4,h5,h6", // default
 	});
 
-	eleventyConfig.addShortcode("currentBuildDate", () => {
+	eleventyConfig.addShortcode('currentBuildDate', () => {
 		return new Date().toISOString();
 	});
 
-	eleventyConfig.amendLibrary("md", (mdLib) => {
+	eleventyConfig.amendLibrary('md', (mdLib) => {
 		var defaultImageRender = mdLib.renderer.rules.image;
 
 		mdLib.renderer.rules.image = function (
@@ -124,7 +116,7 @@ export default async function (eleventyConfig) {
 			self
 		) {
 			const token = tokens[idx];
-			const aIndex = token.attrIndex("src");
+			const aIndex = token.attrIndex('src');
 			const link = token.attrs[aIndex][1];
 
 			if (/(http(s?)):\/\//i.test(link)) {
@@ -150,7 +142,7 @@ export default async function (eleventyConfig) {
 			self
 		) {
 			const token = tokens[idx];
-			const aIndex = token.attrIndex("href");
+			const aIndex = token.attrIndex('href');
 			const link = token.attrs[aIndex][1];
 
 			if (/(http(s?)):\/\//i.test(link)) {
@@ -175,20 +167,20 @@ export default async function (eleventyConfig) {
 export const config = {
 	// Control which files Eleventy will process
 	// e.g.: *.md, *.njk, *.html, *.liquid
-	templateFormats: ["md", "njk", "html", "liquid", "11ty.js"],
+	templateFormats: ['md', 'njk', 'html', 'liquid', '11ty.js'],
 
 	// Pre-process *.md files with: (default: `liquid`)
-	markdownTemplateEngine: "njk",
+	markdownTemplateEngine: 'njk',
 
 	// Pre-process *.html files with: (default: `liquid`)
-	htmlTemplateEngine: "njk",
+	htmlTemplateEngine: 'njk',
 
 	// These are all optional:
 	dir: {
-		input: "content", // default: "."
-		includes: "../_includes", // default: "_includes" (`input` relative)
-		data: "../_data", // default: "_data" (`input` relative)
-		output: "_site"
+		input: 'content', // default: "."
+		includes: '../_includes', // default: "_includes" (`input` relative)
+		data: '../_data', // default: "_data" (`input` relative)
+		output: '_site'
 	}
 
 	// -----------------------------------------------------------------
