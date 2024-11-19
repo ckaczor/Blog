@@ -196,7 +196,7 @@ header {
 	text-decoration: none;
 }
 .nav a[href][aria-current='page'] {
-	text-decoration: underline;
+	font-weight: bold;
 }
 
 /* Posts list */
@@ -283,7 +283,6 @@ header {
 	align-items: center;
 	justify-content: center;
 	text-transform: capitalize;
-	font-style: italic;
 }
 .postlist-item > .post-tag {
 	align-self: center;
@@ -300,4 +299,16 @@ header {
 }
 .post-metadata time {
 	margin-right: 1em;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+img[height] {
+	height: auto;
+}
+img[width][height] {
+	height: auto;
 }
