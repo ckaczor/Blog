@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Laundry Monitor - Hardware</title>
 		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
-		<link rel="alternate" href="/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+		<link rel="alternate" href="/Blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/eleventy-base-blog/img/apple-touch-icon.png?v=2">
-		<link rel="icon" type="image/png" sizes="32x32" href="/eleventy-base-blog/img/favicon-32x32.png?v=2">
-		<link rel="icon" type="image/png" sizes="16x16" href="/eleventy-base-blog/img/favicon-16x16.png?v=2">
+		<link rel="apple-touch-icon" sizes="180x180" href="/Blog/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/Blog/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/Blog/img/favicon-16x16.png?v=2">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -507,22 +507,22 @@ img[width][height] {
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/eleventy-base-blog/" class="home-link">Chris Kaczor</a>
+			<a href="/Blog/" class="home-link">Chris Kaczor</a>
 			<nav>
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/">
+							<a href="/Blog/">
 								Home
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/tags/">
+							<a href="/Blog/tags/">
 								Tags
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/about/">
+							<a href="/Blog/about/">
 								About
 							</a>
 						</li>
@@ -540,7 +540,7 @@ img[width][height] {
 		<time datetime="2018-03-29">29 March 2018</time>
 	</li>
 		<li>
-			<a href="/eleventy-base-blog/tags/code/" class="post-tag">Code</a>
+			<a href="/Blog/tags/code/" class="post-tag">Code</a>
 		</li>
 </ul>
 
@@ -549,21 +549,21 @@ img[width][height] {
 <p>My first thought was to use a <a href="http://www.powerswitchtail.com/powerstate-tail">PowerState Tail</a> but only a 120V version was available - there was nothing like it I could use for the 240V of the dryer. Eventually I settled on a <a href="https://smile.amazon.com/gp/product/B00I9IFJOM/ref=oh_aui_search_detailpage?ie=UTF8&amp;psc=1">Dwyer Miniature Current Switch</a> and I'd use one each for both the washer and dryer just to be consistent.</p>
 <p>Next up was to figure out how to monitor the switch. I was going to use a <a href="https://www.phidgets.com/?tier=1&amp;catid=2&amp;pcid=1">Phidget I/O Board</a> attached to a central server and run wires across the house from the washer and dryer to the I/O board but the idea of running all the wires wasn't too appealing. I was about to try some sort of <a href="https://www.sparkfun.com/pages/xbee_guide">XBee</a> setup when I found the <a href="https://getchip.com/pages/chip">C.H.I.P.</a> Kickstarter and it seemed like it was worth a try - the C.H.I.P. was cheap, had digital I/O, had WiFi, and I could use anything that'd run on Linux to make it all work. The full board is probably a bit of overkill for just monitoring two switches but at $9 a device it really didn't bother me that much.</p>
 <p>Hooking up the dryer was relatively easy - I opened the control panel, used the schematic to find the wire that powers the motor, disconnected the wire, ran the wire through the current switch, and reconnected the wire. I mounted the sensor on the back of the dryer for easy access in case I needed to adjust it but the motor draws enough current that the switch was able to detect it easily.</p>
-<p><a href="/eleventy-base-blog/blog/laundry-monitor-hardware/images/Dryer.jpg"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/7D8kV0Tyqw-225.avif 225w"><source type="image/webp" srcset="/eleventy-base-blog/img/7D8kV0Tyqw-225.webp 225w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/7D8kV0Tyqw-225.jpeg" alt="" width="225" height="300"></picture></a></p>
+<p><a href="/Blog/blog/laundry-monitor-hardware/images/Dryer.jpg"><picture><source type="image/avif" srcset="/Blog/img/7D8kV0Tyqw-225.avif 225w"><source type="image/webp" srcset="/Blog/img/7D8kV0Tyqw-225.webp 225w"><img loading="lazy" decoding="async" src="/Blog/img/7D8kV0Tyqw-225.jpeg" alt="" width="225" height="300"></picture></a></p>
 <p>The washer was pretty much the same but I decided to monitor the main power line so I could detect if the washer was running at any point in the cycle. The trouble was that at certain times (like when the washer was filling) the current draw was way too low for the switch to detect even with the sensitivity set as low as possible. I solved this by looping the wire through the sensor several times to amplify the current to the point where the switch could pick it up.</p>
-<p><a href="/eleventy-base-blog/blog/laundry-monitor-hardware/images/Washer.jpg"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/Qvfav4t14w-225.avif 225w"><source type="image/webp" srcset="/eleventy-base-blog/img/Qvfav4t14w-225.webp 225w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/Qvfav4t14w-225.jpeg" alt="" width="225" height="300"></picture></a></p>
+<p><a href="/Blog/blog/laundry-monitor-hardware/images/Washer.jpg"><picture><source type="image/avif" srcset="/Blog/img/Qvfav4t14w-225.avif 225w"><source type="image/webp" srcset="/Blog/img/Qvfav4t14w-225.webp 225w"><img loading="lazy" decoding="async" src="/Blog/img/Qvfav4t14w-225.jpeg" alt="" width="225" height="300"></picture></a></p>
 <p>From here on out things were simple - I just had to run some smaller wires from the switch to the digital I/O ports on the C.H.I.P. and then start working on the software. I ended up sticking the C.H.I.P. a few feet away by the power outlet so I didn't need too long a USB cable to power it.</p>
-<p><a href="/eleventy-base-blog/blog/laundry-monitor-hardware/images/Chip.jpg"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/y6v3-1HpL1-225.avif 225w"><source type="image/webp" srcset="/eleventy-base-blog/img/y6v3-1HpL1-225.webp 225w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/y6v3-1HpL1-225.jpeg" alt="" width="225" height="300"></picture></a></p>
+<p><a href="/Blog/blog/laundry-monitor-hardware/images/Chip.jpg"><picture><source type="image/avif" srcset="/Blog/img/y6v3-1HpL1-225.avif 225w"><source type="image/webp" srcset="/Blog/img/y6v3-1HpL1-225.webp 225w"><img loading="lazy" decoding="async" src="/Blog/img/y6v3-1HpL1-225.jpeg" alt="" width="225" height="300"></picture></a></p>
 <p>So far this has been running for a little over two years and the hardware continues to work well. I'm planning to do a similar build to monitor two sump pumps - the only change is that I'm planning to use the PowerState Tail since they're both 120V with standard plugs so it'll be a lot easier to hook up.</p>
 <p>I'll cover the software side of the project in my next post - right now the monitor is a standalone service that does all the work but since I'm going to be adding more devices I'm thinking that I need to break things up a bit.</p>
 
 		<ul class="links-nextprev">
 				<li class="links-nextprev-prev">← Previous<br>
-					<a href="/eleventy-base-blog/blog/work-indicator/">Work Indicator</a>
+					<a href="/Blog/blog/work-indicator/">Work Indicator</a>
 				</li>
 			
 				<li class="links-nextprev-next">Next →<br>
-					<a href="/eleventy-base-blog/blog/laundry-monitor-software/">Laundry Monitor – Software</a>
+					<a href="/Blog/blog/laundry-monitor-software/">Laundry Monitor – Software</a>
 				</li>
 			
 		</ul>
@@ -576,7 +576,7 @@ img[width][height] {
 			</p>
 		</footer>
 
-		<!-- This page `/eleventy-base-blog/blog/laundry-monitor-hardware/` was built on 2024-11-21T23:06:36.397Z -->
-		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
+		<!-- This page `/Blog/blog/laundry-monitor-hardware/` was built on 2024-11-21T23:16:50.531Z -->
+		<script type="module" src="/Blog/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>

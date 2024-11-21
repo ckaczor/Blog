@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Feed Center</title>
 		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
-		<link rel="alternate" href="/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+		<link rel="alternate" href="/Blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/eleventy-base-blog/img/apple-touch-icon.png?v=2">
-		<link rel="icon" type="image/png" sizes="32x32" href="/eleventy-base-blog/img/favicon-32x32.png?v=2">
-		<link rel="icon" type="image/png" sizes="16x16" href="/eleventy-base-blog/img/favicon-16x16.png?v=2">
+		<link rel="apple-touch-icon" sizes="180x180" href="/Blog/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/Blog/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/Blog/img/favicon-16x16.png?v=2">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -507,22 +507,22 @@ img[width][height] {
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/eleventy-base-blog/" class="home-link">Chris Kaczor</a>
+			<a href="/Blog/" class="home-link">Chris Kaczor</a>
 			<nav>
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/">
+							<a href="/Blog/">
 								Home
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/tags/">
+							<a href="/Blog/tags/">
 								Tags
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/about/">
+							<a href="/Blog/about/">
 								About
 							</a>
 						</li>
@@ -540,16 +540,16 @@ img[width][height] {
 		<time datetime="2018-04-04">04 April 2018</time>
 	</li>
 		<li>
-			<a href="/eleventy-base-blog/tags/code/" class="post-tag">Code</a>
+			<a href="/Blog/tags/code/" class="post-tag">Code</a>
 		</li>
 </ul>
 
 <p>One of my most complete projects is <a href="https://github.com/ckaczor/FeedCenter">Feed Center</a> - an RSS feed reader designed to blend in with the Windows desktop.</p>
-<p><a href="/eleventy-base-blog/blog/feed-center/images/Feed-Center.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/uZeAJYpepW-300.avif 300w"><source type="image/webp" srcset="/eleventy-base-blog/img/uZeAJYpepW-300.webp 300w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/uZeAJYpepW-300.png" alt="" width="300" height="188"></picture></a></p>
+<p><a href="/Blog/blog/feed-center/images/Feed-Center.png"><picture><source type="image/avif" srcset="/Blog/img/uZeAJYpepW-300.avif 300w"><source type="image/webp" srcset="/Blog/img/uZeAJYpepW-300.webp 300w"><img loading="lazy" decoding="async" src="/Blog/img/uZeAJYpepW-300.png" alt="" width="300" height="188"></picture></a></p>
 <p>Years ago when push technology was the hot new thing I got my online news from applications like PointCast and MSNBC News Alert - but they were eventually discontinued as web sites moved to other delivery mechanisms like RSS feeds. I tried to find an RSS reader but never really found one that I liked. I didn't want some Outlook lookalike that I had to specifically open and read through. I wanted an app that would blend in with my desktop as much as possible and be something that I could glance at every so often for the latest news. At some point I started fiddling with creating my own and Feed Center is the result.</p>
 <p>In theory Feed Center supports all of the common RSS versions and Atom with some special handling for common errors. The fact that I'm parsing the feeds with an XML parser makes it a little harder to handle the edge cases but it works well enough so far.</p>
 <p>Feeds are added in a &quot;default&quot; category but they can optionally be organized into any number of other categories. The top of the main window has a selector for the current category - I'm not sure I like the way it looks but I haven't come up with anything better yet.</p>
-<p><a href="/eleventy-base-blog/blog/feed-center/images/Options-Feed.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/4GWlZwTcq7-706.avif 706w"><source type="image/webp" srcset="/eleventy-base-blog/img/4GWlZwTcq7-706.webp 706w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/4GWlZwTcq7-706.png" alt="" width="706" height="353"></picture></a></p>
+<p><a href="/Blog/blog/feed-center/images/Options-Feed.png"><picture><source type="image/avif" srcset="/Blog/img/4GWlZwTcq7-706.avif 706w"><source type="image/webp" srcset="/Blog/img/4GWlZwTcq7-706.webp 706w"><img loading="lazy" decoding="async" src="/Blog/img/4GWlZwTcq7-706.png" alt="" width="706" height="353"></picture></a></p>
 <p>The arrows at the top of the window (as well as mouse buttons 4 and 5 if you have them) will scroll through the feeds in the current category in alphabetical order. The current feed will also scroll automatically every minute unless the mouse is hovering over the window - it would be annoying to have the feed change when you're getting ready to read one.</p>
 <p>Double clicking an article will open the web page for the article. By default the system default browser will be used but there's an option to choose another browser instead. There's also buttons to open all of the articles for the current feed and to mark all of the articles as having been read.</p>
 <p>The code base has had some major changes over the years - originally the UI was done using WinForms and I used XML files as storage. After a few corrupt XML files from power failures I switched to using SQLite and then to SQL Server Compact. At some point I rewrote the UI using WPF so I could get rid of a bunch of custom painting for the feed list.</p>
@@ -558,11 +558,11 @@ img[width][height] {
 
 		<ul class="links-nextprev">
 				<li class="links-nextprev-prev">← Previous<br>
-					<a href="/eleventy-base-blog/blog/laundry-monitor-software/">Laundry Monitor – Software</a>
+					<a href="/Blog/blog/laundry-monitor-software/">Laundry Monitor – Software</a>
 				</li>
 			
 				<li class="links-nextprev-next">Next →<br>
-					<a href="/eleventy-base-blog/blog/etsy-shop-widget/">Etsy Shop Widget</a>
+					<a href="/Blog/blog/etsy-shop-widget/">Etsy Shop Widget</a>
 				</li>
 			
 		</ul>
@@ -575,7 +575,7 @@ img[width][height] {
 			</p>
 		</footer>
 
-		<!-- This page `/eleventy-base-blog/blog/feed-center/` was built on 2024-11-21T23:06:36.396Z -->
-		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
+		<!-- This page `/Blog/blog/feed-center/` was built on 2024-11-21T23:16:50.530Z -->
+		<script type="module" src="/Blog/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>

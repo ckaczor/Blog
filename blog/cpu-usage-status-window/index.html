@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>CPU Usage Status Window</title>
 		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
-		<link rel="alternate" href="/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+		<link rel="alternate" href="/Blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/eleventy-base-blog/img/apple-touch-icon.png?v=2">
-		<link rel="icon" type="image/png" sizes="32x32" href="/eleventy-base-blog/img/favicon-32x32.png?v=2">
-		<link rel="icon" type="image/png" sizes="16x16" href="/eleventy-base-blog/img/favicon-16x16.png?v=2">
+		<link rel="apple-touch-icon" sizes="180x180" href="/Blog/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/Blog/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/Blog/img/favicon-16x16.png?v=2">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -507,22 +507,22 @@ img[width][height] {
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/eleventy-base-blog/" class="home-link">Chris Kaczor</a>
+			<a href="/Blog/" class="home-link">Chris Kaczor</a>
 			<nav>
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/">
+							<a href="/Blog/">
 								Home
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/tags/">
+							<a href="/Blog/tags/">
 								Tags
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/about/">
+							<a href="/Blog/about/">
 								About
 							</a>
 						</li>
@@ -540,15 +540,15 @@ img[width][height] {
 		<time datetime="2018-03-08">08 March 2018</time>
 	</li>
 		<li>
-			<a href="/eleventy-base-blog/tags/code/" class="post-tag">Code</a>, 
+			<a href="/Blog/tags/code/" class="post-tag">Code</a>, 
 		</li>
 		<li>
-			<a href="/eleventy-base-blog/tags/floating-status-window/" class="post-tag">Floating Status Window</a>
+			<a href="/Blog/tags/floating-status-window/" class="post-tag">Floating Status Window</a>
 		</li>
 </ul>
 
 <p>Now that I've written about my <a href="https://github.com/ckaczor/FloatingStatusWindow">FloatingStatusWindow</a> library I can start to talk about the projects that use it. First up is the <a href="https://github.com/ckaczor/ProcessCpuUsageStatusWindow">ProcessCpuUsageStatusWindow</a> project.</p>
-<p><a href="/eleventy-base-blog/blog/cpu-usage-status-window/images/ProcessCpuUsageStatusWindow.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/L-UgyKZ-NI-373.avif 373w"><source type="image/webp" srcset="/eleventy-base-blog/img/L-UgyKZ-NI-373.webp 373w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/L-UgyKZ-NI-373.png" alt="" width="373" height="139"></picture></a></p>
+<p><a href="/Blog/blog/cpu-usage-status-window/images/ProcessCpuUsageStatusWindow.png"><picture><source type="image/avif" srcset="/Blog/img/L-UgyKZ-NI-373.avif 373w"><source type="image/webp" srcset="/Blog/img/L-UgyKZ-NI-373.webp 373w"><img loading="lazy" decoding="async" src="/Blog/img/L-UgyKZ-NI-373.png" alt="" width="373" height="139"></picture></a></p>
 <p>It is basically a mini task manager showing the top X processes by CPU usage and the total CPU usage of the system. The values update automatically every 2 seconds.</p>
 <p>CPU usage is calculated by taking a snapshot of &quot;% processor time&quot; for the &quot;Process&quot; performance counter category every 2 seconds and having the counter sample calculate the percent usage for each process based on the previous snapshot.</p>
 <p>This ended needing a lot more calculation than I had hoped although I don't remember all the details as to why - one of the perils of blogging so long after the code was written. From what I remember what I first tried was built into .NET and was easier to code but used a lot more processor time than I was comfortable with. Perhaps that has since been fixed in a later framework version - someday I'll have to try to recreate what I was doing.</p>
@@ -557,11 +557,11 @@ img[width][height] {
 
 		<ul class="links-nextprev">
 				<li class="links-nextprev-prev">← Previous<br>
-					<a href="/eleventy-base-blog/blog/floating-status-window/">Floating Status Window</a>
+					<a href="/Blog/blog/floating-status-window/">Floating Status Window</a>
 				</li>
 			
 				<li class="links-nextprev-next">Next →<br>
-					<a href="/eleventy-base-blog/blog/system-temperature-status-window/">System Temperature Status Window</a>
+					<a href="/Blog/blog/system-temperature-status-window/">System Temperature Status Window</a>
 				</li>
 			
 		</ul>
@@ -574,7 +574,7 @@ img[width][height] {
 			</p>
 		</footer>
 
-		<!-- This page `/eleventy-base-blog/blog/cpu-usage-status-window/` was built on 2024-11-21T23:06:36.395Z -->
-		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
+		<!-- This page `/Blog/blog/cpu-usage-status-window/` was built on 2024-11-21T23:16:50.530Z -->
+		<script type="module" src="/Blog/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>

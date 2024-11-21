@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Etsy Shop Widget</title>
 		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
-		<link rel="alternate" href="/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+		<link rel="alternate" href="/Blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/eleventy-base-blog/img/apple-touch-icon.png?v=2">
-		<link rel="icon" type="image/png" sizes="32x32" href="/eleventy-base-blog/img/favicon-32x32.png?v=2">
-		<link rel="icon" type="image/png" sizes="16x16" href="/eleventy-base-blog/img/favicon-16x16.png?v=2">
+		<link rel="apple-touch-icon" sizes="180x180" href="/Blog/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/Blog/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/Blog/img/favicon-16x16.png?v=2">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -507,22 +507,22 @@ img[width][height] {
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/eleventy-base-blog/" class="home-link">Chris Kaczor</a>
+			<a href="/Blog/" class="home-link">Chris Kaczor</a>
 			<nav>
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/">
+							<a href="/Blog/">
 								Home
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/tags/">
+							<a href="/Blog/tags/">
 								Tags
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/eleventy-base-blog/about/">
+							<a href="/Blog/about/">
 								About
 							</a>
 						</li>
@@ -540,16 +540,16 @@ img[width][height] {
 		<time datetime="2018-04-20">20 April 2018</time>
 	</li>
 		<li>
-			<a href="/eleventy-base-blog/tags/code/" class="post-tag">Code</a>
+			<a href="/Blog/tags/code/" class="post-tag">Code</a>
 		</li>
 </ul>
 
 <p>My wife and a friend run The Crafty Coop (edit: now closed) - an event planning business that also sells handmade party decorations/favors online and at craft shows. One of the ways I help out is as the designated &quot;IT guy&quot; by handling the web/email hosting and other technical stuff.</p>
 <p>When we were initially setting up the website using WordPress we looked for a widget that would generate a listing of their Etsy shop items but we weren't really happy with the ones we found - they either required that the Etsy shop be broken up into sections or they didn't quite display the way we wanted. I decided to try to write my own instead of tweaking one of the existing ones and <a href="https://github.com/ckaczor/etsy-shop-widget">Etsy Shop Widget</a> was born.</p>
-<p><a href="/eleventy-base-blog/blog/etsy-shop-widget/images/etsy-shop-widget-widget.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/ZuxNaFUA1y-280.avif 280w"><source type="image/webp" srcset="/eleventy-base-blog/img/ZuxNaFUA1y-280.webp 280w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/ZuxNaFUA1y-280.png" alt="" width="280" height="391"></picture></a></p>
+<p><a href="/Blog/blog/etsy-shop-widget/images/etsy-shop-widget-widget.png"><picture><source type="image/avif" srcset="/Blog/img/ZuxNaFUA1y-280.avif 280w"><source type="image/webp" srcset="/Blog/img/ZuxNaFUA1y-280.webp 280w"><img loading="lazy" decoding="async" src="/Blog/img/ZuxNaFUA1y-280.png" alt="" width="280" height="391"></picture></a></p>
 <p>I decided early on that I wanted to avoid generating the HTML in PHP as much as possible. I knew I'd have use some PHP for the WordPress admin settings but I wanted to use a front-end framework for the widget itself. I was already using <a href="https://vuejs.org/">Vue.js</a> in other projects so when I found a <a href="https://github.com/caldera-learn/vue-webpack-wordpress-plugin">template project</a> for creating a WordPress plugin that used Vue.js I was good to go.</p>
 <p>The <a href="https://www.etsy.com/developers/documentation/getting_started/api_basics">Etsy API</a> requires an API key and is rate limited so I wanted to cache the results rather than fetch them each time the page loaded. I added standard WordPress settings for the API key, the shop name, and the cache time and put them all in a settings section.</p>
-<p><a href="/eleventy-base-blog/blog/etsy-shop-widget/images/etsy-shop-widget-settings.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/rbvGYcCS3i-544.avif 544w"><source type="image/webp" srcset="/eleventy-base-blog/img/rbvGYcCS3i-544.webp 544w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/rbvGYcCS3i-544.png" alt="" width="544" height="289"></picture></a></p>
+<p><a href="/Blog/blog/etsy-shop-widget/images/etsy-shop-widget-settings.png"><picture><source type="image/avif" srcset="/Blog/img/rbvGYcCS3i-544.avif 544w"><source type="image/webp" srcset="/Blog/img/rbvGYcCS3i-544.webp 544w"><img loading="lazy" decoding="async" src="/Blog/img/rbvGYcCS3i-544.png" alt="" width="544" height="289"></picture></a></p>
 <p>Right now this limits the widget to only one shop per WordPress installation but that's all we need right now. In the future I'll move the shop name to an attribute of the widget instead.</p>
 <p>On the back end I created a custom WordPress action that uses the WordPress <a href="https://codex.wordpress.org/Transients_API">transients API</a> to store the cached data from Etsy. Basically if get_transient returns some data then that data is simply returned to the caller, otherwise wp_remote_request is used to make the call to the Etsy API and the returned data is stored using set_transient with the appropriate cache duration.</p>
 <pre class="language-php" tabindex="0"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">ESW_Listings_request</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -607,11 +607,11 @@ export default class App extends Vue {
 
 		<ul class="links-nextprev">
 				<li class="links-nextprev-prev">← Previous<br>
-					<a href="/eleventy-base-blog/blog/feed-center/">Feed Center</a>
+					<a href="/Blog/blog/feed-center/">Feed Center</a>
 				</li>
 			
 				<li class="links-nextprev-next">Next →<br>
-					<a href="/eleventy-base-blog/blog/back-again/">Back Again</a>
+					<a href="/Blog/blog/back-again/">Back Again</a>
 				</li>
 			
 		</ul>
@@ -624,7 +624,7 @@ export default class App extends Vue {
 			</p>
 		</footer>
 
-		<!-- This page `/eleventy-base-blog/blog/etsy-shop-widget/` was built on 2024-11-21T23:06:36.396Z -->
-		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
+		<!-- This page `/Blog/blog/etsy-shop-widget/` was built on 2024-11-21T23:16:50.530Z -->
+		<script type="module" src="/Blog/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>
