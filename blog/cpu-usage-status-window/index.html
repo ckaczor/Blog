@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CPU Usage Status Window</title>
+		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
+		<link rel="alternate" href="/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/eleventy-base-blog/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/eleventy-base-blog/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/eleventy-base-blog/img/favicon-16x16.png?v=2">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+		<meta name="generator" content="Eleventy v3.0.0">
+		
+		
+		<style>
+			/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*='language-diff-'] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+/* Defaults */
+:root {
+	--font-family: Roboto, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT,
+		Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New,
+		Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #c0c0c0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050f;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #c0c0c0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 60em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+footer {
+	padding-bottom: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 0.75rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5em 1em;
+	list-style: '';
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*='language-']) {
+	margin: 0.5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em 0.5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current='page'] {
+	font-weight: bold;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	margin-bottom: 2em;
+}
+.postlist-item:last-child {
+	margin-bottom: 0em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	line-height: 100%;
+	text-align: right;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-right: 0.5em;
+	text-decoration: none;
+}
+
+.postlist-read-more {
+	text-decoration: none;
+	font-size: 0.8125em;
+	flex-basis: 100%;
+}
+
+.postlist-read-more:hover {
+	text-decoration: underline;
+}
+
+.postlist-link:hover {
+	text-decoration: underline;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+.postlist-byline {
+	flex-basis: 100%;
+}
+
+.postlist-tags {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	list-style-type: none;
+	gap: 0.5em;
+	font-size: 0.8125em;
+	padding-inline-start: 10px;
+}
+
+.postlist-tag {
+	text-decoration: none;
+}
+
+.postlist-tag:hover {
+	text-decoration: underline;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+img[height] {
+	height: auto;
+}
+img[width][height] {
+	height: auto;
+}
+		</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/eleventy-base-blog/" class="home-link">Chris Kaczor</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/eleventy-base-blog/">
+								Home
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/eleventy-base-blog/tags/">
+								Tags
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/eleventy-base-blog/about/">
+								About
+							</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<heading-anchors>
+				
+<h1 id="cpu-usage-status-window">CPU Usage Status Window</h1>
+
+<ul class="post-metadata">
+	<li>
+		<time datetime="2018-03-08">08 March 2018</time>
+	</li>
+		<li>
+			<a href="/eleventy-base-blog/tags/code/" class="post-tag">Code</a>, 
+		</li>
+		<li>
+			<a href="/eleventy-base-blog/tags/floating-status-window/" class="post-tag">Floating Status Window</a>
+		</li>
+</ul>
+
+<p>Now that I've written about my <a href="https://github.com/ckaczor/FloatingStatusWindow">FloatingStatusWindow</a> library I can start to talk about the projects that use it. First up is the <a href="https://github.com/ckaczor/ProcessCpuUsageStatusWindow">ProcessCpuUsageStatusWindow</a> project.</p>
+<p><a href="/eleventy-base-blog/blog/cpu-usage-status-window/images/ProcessCpuUsageStatusWindow.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/L-UgyKZ-NI-373.avif 373w"><source type="image/webp" srcset="/eleventy-base-blog/img/L-UgyKZ-NI-373.webp 373w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/L-UgyKZ-NI-373.png" alt="" width="373" height="139"></picture></a></p>
+<p>It is basically a mini task manager showing the top X processes by CPU usage and the total CPU usage of the system. The values update automatically every 2 seconds.</p>
+<p>CPU usage is calculated by taking a snapshot of &quot;% processor time&quot; for the &quot;Process&quot; performance counter category every 2 seconds and having the counter sample calculate the percent usage for each process based on the previous snapshot.</p>
+<p>This ended needing a lot more calculation than I had hoped although I don't remember all the details as to why - one of the perils of blogging so long after the code was written. From what I remember what I first tried was built into .NET and was easier to code but used a lot more processor time than I was comfortable with. Perhaps that has since been fixed in a later framework version - someday I'll have to try to recreate what I was doing.</p>
+<p>One caveat - the code doesn't always work quite right. I have seen a few times where the calculation comes out way over 100% but I haven't been able to reliably reproduce it. It seems to be when either something hangs Windows or there's exceptionally high disk usage. Either way - it works well enough for getting a quick look at CPU usage so I haven't spent much time on it.</p>
+<p>This was also the first project where I tried using <a href="https://github.com/Squirrel/Squirrel.Windows">Squirrel</a> for installation and updates. I had used both <a href="http://wixtoolset.org/">WiX</a> (with custom update detection and installation) and <a href="https://en.wikipedia.org/wiki/ClickOnce">ClickOnce</a> in other projects and I think I'll probably go with Squirrel for most things going forward.</p>
+
+		<ul class="links-nextprev">
+				<li class="links-nextprev-prev">← Previous<br>
+					<a href="/eleventy-base-blog/blog/floating-status-window/">Floating Status Window</a>
+				</li>
+			
+				<li class="links-nextprev-next">Next →<br>
+					<a href="/eleventy-base-blog/blog/system-temperature-status-window/">System Temperature Status Window</a>
+				</li>
+			
+		</ul>
+			</heading-anchors>
+		</main>
+
+		<footer>
+			<p>
+				Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a>
+			</p>
+		</footer>
+
+		<!-- This page `/eleventy-base-blog/blog/cpu-usage-status-window/` was built on 2024-11-21T23:06:36.395Z -->
+		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
+	</body>
+</html>

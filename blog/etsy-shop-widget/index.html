@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Etsy Shop Widget</title>
+		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
+		<link rel="alternate" href="/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/eleventy-base-blog/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/eleventy-base-blog/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/eleventy-base-blog/img/favicon-16x16.png?v=2">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+		<meta name="generator" content="Eleventy v3.0.0">
+		
+		
+		<style>
+			/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*='language-diff-'] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+/* Defaults */
+:root {
+	--font-family: Roboto, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT,
+		Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New,
+		Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #c0c0c0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050f;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #c0c0c0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 60em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+footer {
+	padding-bottom: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 0.75rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5em 1em;
+	list-style: '';
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*='language-']) {
+	margin: 0.5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em 0.5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current='page'] {
+	font-weight: bold;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	margin-bottom: 2em;
+}
+.postlist-item:last-child {
+	margin-bottom: 0em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	line-height: 100%;
+	text-align: right;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-right: 0.5em;
+	text-decoration: none;
+}
+
+.postlist-read-more {
+	text-decoration: none;
+	font-size: 0.8125em;
+	flex-basis: 100%;
+}
+
+.postlist-read-more:hover {
+	text-decoration: underline;
+}
+
+.postlist-link:hover {
+	text-decoration: underline;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+.postlist-byline {
+	flex-basis: 100%;
+}
+
+.postlist-tags {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	list-style-type: none;
+	gap: 0.5em;
+	font-size: 0.8125em;
+	padding-inline-start: 10px;
+}
+
+.postlist-tag {
+	text-decoration: none;
+}
+
+.postlist-tag:hover {
+	text-decoration: underline;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+img[height] {
+	height: auto;
+}
+img[width][height] {
+	height: auto;
+}
+		</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/eleventy-base-blog/" class="home-link">Chris Kaczor</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/eleventy-base-blog/">
+								Home
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/eleventy-base-blog/tags/">
+								Tags
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/eleventy-base-blog/about/">
+								About
+							</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<heading-anchors>
+				
+<h1 id="etsy-shop-widget">Etsy Shop Widget</h1>
+
+<ul class="post-metadata">
+	<li>
+		<time datetime="2018-04-20">20 April 2018</time>
+	</li>
+		<li>
+			<a href="/eleventy-base-blog/tags/code/" class="post-tag">Code</a>
+		</li>
+</ul>
+
+<p>My wife and a friend run The Crafty Coop (edit: now closed) - an event planning business that also sells handmade party decorations/favors online and at craft shows. One of the ways I help out is as the designated &quot;IT guy&quot; by handling the web/email hosting and other technical stuff.</p>
+<p>When we were initially setting up the website using WordPress we looked for a widget that would generate a listing of their Etsy shop items but we weren't really happy with the ones we found - they either required that the Etsy shop be broken up into sections or they didn't quite display the way we wanted. I decided to try to write my own instead of tweaking one of the existing ones and <a href="https://github.com/ckaczor/etsy-shop-widget">Etsy Shop Widget</a> was born.</p>
+<p><a href="/eleventy-base-blog/blog/etsy-shop-widget/images/etsy-shop-widget-widget.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/ZuxNaFUA1y-280.avif 280w"><source type="image/webp" srcset="/eleventy-base-blog/img/ZuxNaFUA1y-280.webp 280w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/ZuxNaFUA1y-280.png" alt="" width="280" height="391"></picture></a></p>
+<p>I decided early on that I wanted to avoid generating the HTML in PHP as much as possible. I knew I'd have use some PHP for the WordPress admin settings but I wanted to use a front-end framework for the widget itself. I was already using <a href="https://vuejs.org/">Vue.js</a> in other projects so when I found a <a href="https://github.com/caldera-learn/vue-webpack-wordpress-plugin">template project</a> for creating a WordPress plugin that used Vue.js I was good to go.</p>
+<p>The <a href="https://www.etsy.com/developers/documentation/getting_started/api_basics">Etsy API</a> requires an API key and is rate limited so I wanted to cache the results rather than fetch them each time the page loaded. I added standard WordPress settings for the API key, the shop name, and the cache time and put them all in a settings section.</p>
+<p><a href="/eleventy-base-blog/blog/etsy-shop-widget/images/etsy-shop-widget-settings.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/img/rbvGYcCS3i-544.avif 544w"><source type="image/webp" srcset="/eleventy-base-blog/img/rbvGYcCS3i-544.webp 544w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/img/rbvGYcCS3i-544.png" alt="" width="544" height="289"></picture></a></p>
+<p>Right now this limits the widget to only one shop per WordPress installation but that's all we need right now. In the future I'll move the shop name to an attribute of the widget instead.</p>
+<p>On the back end I created a custom WordPress action that uses the WordPress <a href="https://codex.wordpress.org/Transients_API">transients API</a> to store the cached data from Etsy. Basically if get_transient returns some data then that data is simply returned to the caller, otherwise wp_remote_request is used to make the call to the Etsy API and the returned data is stored using set_transient with the appropriate cache duration.</p>
+<pre class="language-php" tabindex="0"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">ESW_Listings_request</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$listings</span> <span class="token operator">=</span> <span class="token function">get_transient</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'etsy_shop_widget_listings'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$listings</span> <span class="token operator">===</span> <span class="token constant boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$options</span> <span class="token operator">=</span> <span class="token function">get_option</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'ESW_settings'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token function">wp_remote_request</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'https://openapi.etsy.com/v2/shops/'</span> <span class="token operator">.</span> <span class="token variable">$options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'ESW_Etsy_Shop_Name'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/listings/active?includes=MainImage&amp;amp;amp;amp;amp;amp;api_key='</span> <span class="token operator">.</span> <span class="token variable">$options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'ESW_Etsy_API_Key'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$listings</span> <span class="token operator">=</span> <span class="token variable">$response</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'body'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token function">set_transient</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'etsy_shop_widget_listings'</span><span class="token punctuation">,</span> <span class="token variable">$listings</span><span class="token punctuation">,</span> <span class="token variable">$options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'ESW_Cache_Time'</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">echo</span> <span class="token variable">$listings</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">add_action</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'admin_post_esw_listings'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'ESW_Listings_request'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'admin_post_nopriv_esw_listings'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'ESW_Listings_request'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The rest of the PHP side is pretty straightforward - there's an &quot;[etsy-shop-widget]&quot; shortcode that generates an empty div with an ID of &quot;etsy-shop-widget&quot; that is used as the root of the Vue.js application and some code that links the styles and scripts generated by webpack when building the Vue.js code.</p>
+<p>The front-end code is currently pretty basic as well. The Vue.js application just makes an AJAX request to the WordPress custom action, stores the resulting data in a component, and then uses the data to render a list of the item names, pictures, and prices.</p>
+<pre class="language-jscript" tabindex="0"><code class="language-jscript">@Component
+export default class App extends Vue {
+	listings: Array<EtsyListing> | null = null;
+
+	async mounted() {
+		const response = await Axios.get<EtsyResult>(window['esw_wp'].siteurl + '/wp-admin/admin-post.php?action=esw_listings');
+
+		this.listings = response.data.results.sort((a, b) => a.last_modified_tsz - b.last_modified_tsz);
+	}
+}</EtsyResult></EtsyListing></code></pre>
+<pre class="language-xml" tabindex="0"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>esw-listing-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>esw-listing-item<span class="token punctuation">"</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>listing in listings<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">v-bind:</span>key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>listing.listing_id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">:href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>listing.url<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>esw-listing-item-image<span class="token punctuation">"</span></span> <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>listing.MainImage.url_170x135<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">:href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>listing.url<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>esw-listing-item-title<span class="token punctuation">"</span></span> <span class="token attr-name">v-html</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>listing.title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>esw-listing-item-price<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+				
+				
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></code></pre>
+<p>At some point I'd like the make the listing a little fancier - maybe with a single image and previous/next buttons rather than a simple scrolling list but we're happy with the way it is working for now.</p>
+
+		<ul class="links-nextprev">
+				<li class="links-nextprev-prev">← Previous<br>
+					<a href="/eleventy-base-blog/blog/feed-center/">Feed Center</a>
+				</li>
+			
+				<li class="links-nextprev-next">Next →<br>
+					<a href="/eleventy-base-blog/blog/back-again/">Back Again</a>
+				</li>
+			
+		</ul>
+			</heading-anchors>
+		</main>
+
+		<footer>
+			<p>
+				Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a>
+			</p>
+		</footer>
+
+		<!-- This page `/eleventy-base-blog/blog/etsy-shop-widget/` was built on 2024-11-21T23:06:36.396Z -->
+		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
+	</body>
+</html>

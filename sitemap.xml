@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/hello-world/</loc>
+			<lastmod>2018-02-05</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/weather-station/</loc>
+			<lastmod>2018-02-17</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/floating-status-window/</loc>
+			<lastmod>2018-02-21</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/cpu-usage-status-window/</loc>
+			<lastmod>2018-03-08</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/system-temperature-status-window/</loc>
+			<lastmod>2018-03-19</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/work-indicator/</loc>
+			<lastmod>2018-03-19</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/laundry-monitor-hardware/</loc>
+			<lastmod>2018-03-29</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/laundry-monitor-software/</loc>
+			<lastmod>2018-04-02</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/feed-center/</loc>
+			<lastmod>2018-04-04</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/etsy-shop-widget/</loc>
+			<lastmod>2018-04-20</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/back-again/</loc>
+			<lastmod>2019-12-13</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/blog/where-did-the-time-go/</loc>
+			<lastmod>2024-11-11</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/about/</loc>
+			<lastmod>2024-11-21</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/</loc>
+			<lastmod>2024-11-21</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/tags/</loc>
+			<lastmod>2024-11-21</lastmod>
+		</url>
+		
+		<url>
+			<loc>https://chriskaczor.com/eleventy-base-blog/feed/feed.xml</loc>
+			<lastmod>2024-11-21</lastmod>
+		</url>
+</urlset>
