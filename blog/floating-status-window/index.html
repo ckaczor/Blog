@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Floating Status Window</title>
 		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
-		<link rel="alternate" href="/Blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/Blog/img/apple-touch-icon.png?v=2">
-		<link rel="icon" type="image/png" sizes="32x32" href="/Blog/img/favicon-32x32.png?v=2">
-		<link rel="icon" type="image/png" sizes="16x16" href="/Blog/img/favicon-16x16.png?v=2">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png?v=2">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -507,22 +507,22 @@ img[width][height] {
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/Blog/" class="home-link">Chris Kaczor</a>
+			<a href="/" class="home-link">Chris Kaczor</a>
 			<nav>
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 						<li class="nav-item">
-							<a href="/Blog/">
+							<a href="/">
 								Home
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/Blog/tags/">
+							<a href="/tags/">
 								Tags
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/Blog/about/">
+							<a href="/about/">
 								About
 							</a>
 						</li>
@@ -540,20 +540,20 @@ img[width][height] {
 		<time datetime="2018-02-21">21 February 2018</time>
 	</li>
 		<li>
-			<a href="/Blog/tags/code/" class="post-tag">Code</a>, 
+			<a href="/tags/code/" class="post-tag">Code</a>, 
 		</li>
 		<li>
-			<a href="/Blog/tags/floating-status-window/" class="post-tag">Floating Status Window</a>
+			<a href="/tags/floating-status-window/" class="post-tag">Floating Status Window</a>
 		</li>
 </ul>
 
 <p>Something that shows up in a lot of my projects is my <a href="https://github.com/ckaczor/FloatingStatusWindow">FloatingStatusWindow</a> library. It allows the creation of something akin to a desktop widget that displays simple text and blends in with the Windows desktop. This is what several of them look like in the corner of my secondary monitor:</p>
-<p><a href="/Blog/blog/floating-status-window/images/Windows-Locked.png"><picture><source type="image/avif" srcset="/Blog/img/-IG3SLpr1H-770.avif 770w"><source type="image/webp" srcset="/Blog/img/-IG3SLpr1H-770.webp 770w"><img loading="lazy" decoding="async" src="/Blog/img/-IG3SLpr1H-770.png" alt="" width="770" height="303"></picture></a></p>
+<p><a href="/blog/floating-status-window/images/Windows-Locked.png"><picture><source type="image/avif" srcset="/img/-IG3SLpr1H-770.avif 770w"><source type="image/webp" srcset="/img/-IG3SLpr1H-770.webp 770w"><img loading="lazy" decoding="async" src="/img/-IG3SLpr1H-770.png" alt="" width="770" height="303"></picture></a></p>
 <p>Each one is a separate project that uses the core library to create and manage the window. The code for a few of these is on <a href="https://github.com/ckaczor">GitHub</a> and I'm working to add more.</p>
 <p>The windows are locked by default to prevent accidentally moving them but they can be unlocked in order to move or resize them. When moving or resizing the windows will snap to each other and the sides of the screen. This is what the example above looks like unlocked:</p>
-<p><a href="/Blog/blog/floating-status-window/images/Windows-Unlocked.png"><picture><source type="image/avif" srcset="/Blog/img/2zWtBO5eyV-1358.avif 1358w"><source type="image/webp" srcset="/Blog/img/2zWtBO5eyV-1358.webp 1358w"><img loading="lazy" decoding="async" src="/Blog/img/2zWtBO5eyV-1358.png" alt="" width="1358" height="354"></picture></a></p>
+<p><a href="/blog/floating-status-window/images/Windows-Unlocked.png"><picture><source type="image/avif" srcset="/img/2zWtBO5eyV-1358.avif 1358w"><source type="image/webp" srcset="/img/2zWtBO5eyV-1358.webp 1358w"><img loading="lazy" decoding="async" src="/img/2zWtBO5eyV-1358.png" alt="" width="1358" height="354"></picture></a></p>
 <p>Basic appearance settings are built into the library itself along with a dialog to change them:</p>
-<p><a href="/Blog/blog/floating-status-window/images/Window-Appearance.png"><picture><source type="image/avif" srcset="/Blog/img/mcAwKnxf5g-436.avif 436w"><source type="image/webp" srcset="/Blog/img/mcAwKnxf5g-436.webp 436w"><img loading="lazy" decoding="async" src="/Blog/img/mcAwKnxf5g-436.png" alt="" width="436" height="298"></picture></a></p>
+<p><a href="/blog/floating-status-window/images/Window-Appearance.png"><picture><source type="image/avif" srcset="/img/mcAwKnxf5g-436.avif 436w"><source type="image/webp" srcset="/img/mcAwKnxf5g-436.webp 436w"><img loading="lazy" decoding="async" src="/img/mcAwKnxf5g-436.png" alt="" width="436" height="298"></picture></a></p>
 <p>Each individual project is responsible for the text, the text layout, using a non-default text color, and keeping the text up to date. Some projects will update using a timer while others will wait for some sort of event and update as needed.</p>
 <p>I had tried a number of applications that could do custom widgets but none of them quite worked the way I wanted. I read an article about transparent WPF windows and decided to create something myself.</p>
 <p>Originally it was implemented as a single application that could load a number of plugins but that ended up being a bit of a pain - when working on a new window I had to close and restart everything and if a plugin crashed it'd take down all of the rest. I decided to convert it into a library that could detect other instances of the window so they worked together but were implemented as separate binaries.</p>
@@ -561,11 +561,11 @@ img[width][height] {
 
 		<ul class="links-nextprev">
 				<li class="links-nextprev-prev">← Previous<br>
-					<a href="/Blog/blog/weather-station/">Weather Station</a>
+					<a href="/blog/weather-station/">Weather Station</a>
 				</li>
 			
 				<li class="links-nextprev-next">Next →<br>
-					<a href="/Blog/blog/cpu-usage-status-window/">CPU Usage Status Window</a>
+					<a href="/blog/cpu-usage-status-window/">CPU Usage Status Window</a>
 				</li>
 			
 		</ul>
@@ -578,7 +578,7 @@ img[width][height] {
 			</p>
 		</footer>
 
-		<!-- This page `/Blog/blog/floating-status-window/` was built on 2024-11-21T23:16:50.531Z -->
-		<script type="module" src="/Blog/dist/rJ3_G-2ArF.js"></script>
+		<!-- This page `/blog/floating-status-window/` was built on 2024-11-22T01:17:28.245Z -->
+		<script type="module" src="/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>

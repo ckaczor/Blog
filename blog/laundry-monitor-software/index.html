@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Laundry Monitor – Software</title>
 		<meta name="description" content="Code, Critters, and whatever I feel like writing about.">
-		<link rel="alternate" href="/Blog/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Chris Kaczor">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/Blog/img/apple-touch-icon.png?v=2">
-		<link rel="icon" type="image/png" sizes="32x32" href="/Blog/img/favicon-32x32.png?v=2">
-		<link rel="icon" type="image/png" sizes="16x16" href="/Blog/img/favicon-16x16.png?v=2">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v=2">
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png?v=2">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png?v=2">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -507,22 +507,22 @@ img[width][height] {
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/Blog/" class="home-link">Chris Kaczor</a>
+			<a href="/" class="home-link">Chris Kaczor</a>
 			<nav>
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 						<li class="nav-item">
-							<a href="/Blog/">
+							<a href="/">
 								Home
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/Blog/tags/">
+							<a href="/tags/">
 								Tags
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/Blog/about/">
+							<a href="/about/">
 								About
 							</a>
 						</li>
@@ -540,26 +540,26 @@ img[width][height] {
 		<time datetime="2018-04-02">02 April 2018</time>
 	</li>
 		<li>
-			<a href="/Blog/tags/code/" class="post-tag">Code</a>, 
+			<a href="/tags/code/" class="post-tag">Code</a>, 
 		</li>
 		<li>
-			<a href="/Blog/tags/floating-status-window/" class="post-tag">Floating Status Window</a>
+			<a href="/tags/floating-status-window/" class="post-tag">Floating Status Window</a>
 		</li>
 </ul>
 
 <p>The software side of <a href="https://github.com/ckaczor/LaundryMonitor">LaundryMonitor</a> is currently pretty straightforward. The <a href="https://getchip.com/pages/chip">C.H.I.P.</a> runs a Node.js application that keeps track of a GPIO pin for each current switch - when the switch is closed the appliance is on and when the switch is open the appliance is off. The application exposes a websocket that applications like <a href="https://github.com/ckaczor/HomeStatusWindow">HomeStatusWindow</a> can watch and messages are sent to a family Telegram channel.</p>
-<p><a href="/Blog/blog/laundry-monitor-software/images/HomeStatusWindow.png"><picture><source type="image/avif" srcset="/Blog/img/t0izVudIyW-107.avif 107w"><source type="image/webp" srcset="/Blog/img/t0izVudIyW-107.webp 107w"><img loading="lazy" decoding="async" src="/Blog/img/t0izVudIyW-107.png" alt="" width="107" height="48"></picture></a></p>
-<p><a href="/Blog/blog/laundry-monitor-software/images/LaundryBot.png"><picture><source type="image/avif" srcset="/Blog/img/MWYQsdWfr9-238.avif 238w"><source type="image/webp" srcset="/Blog/img/MWYQsdWfr9-238.webp 238w"><img loading="lazy" decoding="async" src="/Blog/img/MWYQsdWfr9-238.png" alt="" width="238" height="300"></picture></a></p>
+<p><a href="/blog/laundry-monitor-software/images/HomeStatusWindow.png"><picture><source type="image/avif" srcset="/img/t0izVudIyW-107.avif 107w"><source type="image/webp" srcset="/img/t0izVudIyW-107.webp 107w"><img loading="lazy" decoding="async" src="/img/t0izVudIyW-107.png" alt="" width="107" height="48"></picture></a></p>
+<p><a href="/blog/laundry-monitor-software/images/LaundryBot.png"><picture><source type="image/avif" srcset="/img/MWYQsdWfr9-238.avif 238w"><source type="image/webp" srcset="/img/MWYQsdWfr9-238.webp 238w"><img loading="lazy" decoding="async" src="/img/MWYQsdWfr9-238.png" alt="" width="238" height="300"></picture></a></p>
 <p>I use the <a href="https://github.com/fivdi/onoff">onoff</a> library to poll the GPIO pins every 500 milliseconds and wait for a pin to be steady for 10 seconds before registering the new state. Originally I tried to use an interrupt but during testing I found that the onoff library could get stuck if switch events came in too fast. I decided that I didn't need real-time updates so a polling mechanism would be enough. I also originally didn't have the 10 second wait time but I found that the washer had a few periods where it would stop completely between wash phases and it made the Telegram alerts somewhat spammy. It looks like there have been a lot of updates to onoff since I first created the application so I plan to see if the interrupt issue has been fixed and if I can use the new debounce support rather than my own custom code.</p>
 <p>Since I'm planning to monitor more devices in the future I'm thinking about making the application that runs on each C.H.I.P. generic and moving the alert and websocket implementation to a central &quot;home monitor&quot; service. The monitor application on each C.H.I.P. would be the same (other than configuration settings) and just report the status to the central service which would be in charge of everything else.</p>
 
 		<ul class="links-nextprev">
 				<li class="links-nextprev-prev">← Previous<br>
-					<a href="/Blog/blog/laundry-monitor-hardware/">Laundry Monitor - Hardware</a>
+					<a href="/blog/laundry-monitor-hardware/">Laundry Monitor - Hardware</a>
 				</li>
 			
 				<li class="links-nextprev-next">Next →<br>
-					<a href="/Blog/blog/feed-center/">Feed Center</a>
+					<a href="/blog/feed-center/">Feed Center</a>
 				</li>
 			
 		</ul>
@@ -572,7 +572,7 @@ img[width][height] {
 			</p>
 		</footer>
 
-		<!-- This page `/Blog/blog/laundry-monitor-software/` was built on 2024-11-21T23:16:50.531Z -->
-		<script type="module" src="/Blog/dist/rJ3_G-2ArF.js"></script>
+		<!-- This page `/blog/laundry-monitor-software/` was built on 2024-11-22T01:17:28.245Z -->
+		<script type="module" src="/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>

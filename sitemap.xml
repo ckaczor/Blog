@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/hello-world/</loc>
+			<loc>https://chriskaczor.com/blog/hello-world/</loc>
 			<lastmod>2018-02-05</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/weather-station/</loc>
+			<loc>https://chriskaczor.com/blog/weather-station/</loc>
 			<lastmod>2018-02-17</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/floating-status-window/</loc>
+			<loc>https://chriskaczor.com/blog/floating-status-window/</loc>
 			<lastmod>2018-02-21</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/cpu-usage-status-window/</loc>
+			<loc>https://chriskaczor.com/blog/cpu-usage-status-window/</loc>
 			<lastmod>2018-03-08</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/system-temperature-status-window/</loc>
+			<loc>https://chriskaczor.com/blog/system-temperature-status-window/</loc>
 			<lastmod>2018-03-19</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/work-indicator/</loc>
+			<loc>https://chriskaczor.com/blog/work-indicator/</loc>
 			<lastmod>2018-03-19</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/laundry-monitor-hardware/</loc>
+			<loc>https://chriskaczor.com/blog/laundry-monitor-hardware/</loc>
 			<lastmod>2018-03-29</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/laundry-monitor-software/</loc>
+			<loc>https://chriskaczor.com/blog/laundry-monitor-software/</loc>
 			<lastmod>2018-04-02</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/feed-center/</loc>
+			<loc>https://chriskaczor.com/blog/feed-center/</loc>
 			<lastmod>2018-04-04</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/etsy-shop-widget/</loc>
+			<loc>https://chriskaczor.com/blog/etsy-shop-widget/</loc>
 			<lastmod>2018-04-20</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/back-again/</loc>
+			<loc>https://chriskaczor.com/blog/back-again/</loc>
 			<lastmod>2019-12-13</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/blog/where-did-the-time-go/</loc>
+			<loc>https://chriskaczor.com/blog/where-did-the-time-go/</loc>
 			<lastmod>2024-11-11</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/about/</loc>
-			<lastmod>2024-11-21</lastmod>
+			<loc>https://chriskaczor.com/about/</loc>
+			<lastmod>2024-11-22</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/</loc>
-			<lastmod>2024-11-21</lastmod>
+			<loc>https://chriskaczor.com/</loc>
+			<lastmod>2024-11-22</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/tags/</loc>
-			<lastmod>2024-11-21</lastmod>
+			<loc>https://chriskaczor.com/tags/</loc>
+			<lastmod>2024-11-22</lastmod>
 		</url>
 		
 		<url>
-			<loc>https://chriskaczor.com/Blog/feed/feed.xml</loc>
-			<lastmod>2024-11-21</lastmod>
+			<loc>https://chriskaczor.com/feed/feed.xml</loc>
+			<lastmod>2024-11-22</lastmod>
 		</url>
 </urlset>
