@@ -71,12 +71,33 @@
 		</main>
 
 		<footer>
-			<p>
-				Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a>
-			</p>
+			<div class="footer-links">
+				<a href="https://github.com/ckaczor" title="GitHub">
+					<picture>
+						<source srcset="/img/github/github-mark.svg" media="(prefers-color-scheme: light)"/>
+						<source srcset="/img/github/github-mark-white.svg" media="(prefers-color-scheme: dark)"/>
+						<img eleventy:ignore src="/img/github/github-mark.svg" alt="GitHub Logo" />
+					</picture>
+      			</a>
+				<a href="/feed/feed.xml" type="application/atom+xml" title="Subscribe">
+					<picture>
+						<source srcset="/img/feed/rss.svg" media="(prefers-color-scheme: light)"/>
+						<source srcset="/img/feed/rss-white.svg" media="(prefers-color-scheme: dark)"/>
+						<img eleventy:ignore src="/img/feed/rss.svg" alt="RSS" />
+					</picture>
+      			</a>
+				<a href="https://www.linkedin.com/in/chris-kaczor/" title="LinkedIn">
+					<picture>
+						<source srcset="/img/linkedin/linkedin.svg" media="(prefers-color-scheme: light)"/>
+						<source srcset="/img/linkedin/linkedin-white.svg" media="(prefers-color-scheme: dark)"/>
+						<img eleventy:ignore src="/img/linkedin/linkedin.svg" alt="LinkedIn" />
+					</picture>
+      			</a>
+			</div>
 		</footer>
 
 		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+		<!-- Built with {{ eleventy.generator }} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 	</body>
 </html>
