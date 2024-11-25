@@ -501,6 +501,18 @@ img[height] {
 img[width][height] {
 	height: auto;
 }
+
+.footer-links {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+	height: 2rem;
+	column-gap: 1rem;
+
+	img {
+		height: 2rem;
+	}
+}
 		</style>
 	</head>
 	<body>
@@ -570,12 +582,33 @@ img[width][height] {
 		</main>
 
 		<footer>
-			<p>
-				Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a>
-			</p>
+			<div class="footer-links">
+				<a href="https://github.com/ckaczor" title="GitHub">
+					<picture>
+						<source srcset="/img/github/github-mark.svg" media="(prefers-color-scheme: light)">
+						<source srcset="/img/github/github-mark-white.svg" media="(prefers-color-scheme: dark)">
+						<img src="/img/github/github-mark.svg" alt="GitHub Logo">
+					</picture>
+      			</a>
+				<a href="/feed/feed.xml" type="application/atom+xml" title="Subscribe">
+					<picture>
+						<source srcset="/img/feed/rss.svg" media="(prefers-color-scheme: light)">
+						<source srcset="/img/feed/rss-white.svg" media="(prefers-color-scheme: dark)">
+						<img src="/img/feed/rss.svg" alt="RSS">
+					</picture>
+      			</a>
+				<a href="https://www.linkedin.com/in/chris-kaczor/" title="LinkedIn">
+					<picture>
+						<source srcset="/img/linkedin/linkedin.svg" media="(prefers-color-scheme: light)">
+						<source srcset="/img/linkedin/linkedin-white.svg" media="(prefers-color-scheme: dark)">
+						<img src="/img/linkedin/linkedin.svg" alt="LinkedIn">
+					</picture>
+      			</a>
+			</div>
 		</footer>
 
-		<!-- This page `/blog/feed-center/` was built on 2024-11-22T01:17:28.244Z -->
+		<!-- This page `/blog/feed-center/` was built on 2024-11-25T16:32:59.376Z -->
+		<!-- Built with Eleventy v3.0.0 -->
 		<script type="module" src="/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>
